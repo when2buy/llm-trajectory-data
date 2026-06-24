@@ -10,7 +10,7 @@ JSON we collect and at what granularity**, so the team can agree on the data spe
 build the router.
 
 📄 **Start here:** [**Guided report**](./docs/report.md) · [**Schema spec**](./docs/trajectory-schema.md)
-🌐 **Web view:** _(GitHub Pages — see below)_
+🌐 **Web view:** **https://when2buy.github.io/llm-trajectory-data/** (interactive trace browser)
 
 ---
 
