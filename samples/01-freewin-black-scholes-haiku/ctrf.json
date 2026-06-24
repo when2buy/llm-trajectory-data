@@ -1,0 +1,50 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777484358.3338006,
+      "stop": 1777484358.843211
+    },
+    "tests": [
+      {
+        "name": "tests/test_outputs.py::test_structure",
+        "status": "passed",
+        "duration": 0.005389930011006072,
+        "start": 1777484358.7572029,
+        "stop": 1777484358.7629325,
+        "retries": 0,
+        "file_path": "tests/test_outputs.py"
+      },
+      {
+        "name": "tests/test_outputs.py::test_values",
+        "status": "passed",
+        "duration": 0.013963238001451828,
+        "start": 1777484358.7631395,
+        "stop": 1777484358.7782183,
+        "retries": 9,
+        "file_path": "tests/test_outputs.py",
+        "tags": [
+          "parametrize::oid,metric,exp::[('OPT1', 'price', 13.8437), ('OPT1', 'delta', 0.6408), ('OPT2', 'price', 11.5286), ('OPT2', 'delta', -0.5145), ('OPT3', 'price', 266.3796), ('OPT3', 'delta', 0.6026), ('OPT4', 'price', 164.6462), ('OPT4', 'delta', -0.308), ('OPT5', 'price', 6.3106), ('OPT5', 'delta', 0.4934)]"
+        ]
+      },
+      {
+        "name": "tests/test_outputs.py::test_greeks_signs",
+        "status": "passed",
+        "duration": 0.005424500006483868,
+        "start": 1777484358.8370645,
+        "stop": 1777484358.8427937,
+        "retries": 0,
+        "file_path": "tests/test_outputs.py"
+      }
+    ]
+  }
+}

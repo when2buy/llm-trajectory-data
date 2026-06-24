@@ -1,0 +1,110 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777721534.1094794,
+      "stop": 1777721534.6033137
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::test_results_file_exists",
+        "status": "passed",
+        "duration": 0.008151845075190067,
+        "start": 1777721534.5233088,
+        "stop": 1777721534.532213,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_required_keys",
+        "status": "passed",
+        "duration": 0.0072434068424627185,
+        "start": 1777721534.5324094,
+        "stop": 1777721534.5403826,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_prices_positive",
+        "status": "passed",
+        "duration": 0.0067321519600227475,
+        "start": 1777721534.5405633,
+        "stop": 1777721534.5476289,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_mc_call_within_2pct_of_analytical",
+        "status": "passed",
+        "duration": 0.006718829041346908,
+        "start": 1777721534.5478153,
+        "stop": 1777721534.5549872,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_mc_put_within_2pct_of_analytical",
+        "status": "passed",
+        "duration": 0.007591853034682572,
+        "start": 1777721534.555142,
+        "stop": 1777721534.5633917,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_put_call_parity_mc",
+        "status": "passed",
+        "duration": 0.006959586055018008,
+        "start": 1777721534.5635695,
+        "stop": 1777721534.571116,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_analytical_put_call_parity",
+        "status": "passed",
+        "duration": 0.006692101946100593,
+        "start": 1777721534.5713274,
+        "stop": 1777721534.578695,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_call_greater_than_intrinsic",
+        "status": "passed",
+        "duration": 0.007439124048687518,
+        "start": 1777721534.5788846,
+        "stop": 1777721534.586788,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_call_greater_than_put_positive_rate",
+        "status": "passed",
+        "duration": 0.006865133997052908,
+        "start": 1777721534.586967,
+        "stop": 1777721534.5942578,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_analytical_call_not_exceeds_spot",
+        "status": "passed",
+        "duration": 0.007807895075529814,
+        "start": 1777721534.5943882,
+        "stop": 1777721534.6027572,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      }
+    ]
+  }
+}

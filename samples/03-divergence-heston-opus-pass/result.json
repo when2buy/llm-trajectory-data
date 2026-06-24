@@ -1,0 +1,109 @@
+{
+  "id": "d1715219-6564-4cd9-9c13-49c4626761ec",
+  "task_name": "heston-mc-pricing",
+  "trial_name": "fb-v10-opus46-heston-mc-pricing",
+  "trial_uri": "file:///workspace/fb-harbor/trials/fb-v10-opus46-heston-mc-pricing",
+  "task_id": {
+    "path": "tasks/heston-mc-pricing"
+  },
+  "source": null,
+  "task_checksum": "70970f473bb007f6b9efed5ce4aa98289209957d8d1181e091368a6a2acae1fd",
+  "config": {
+    "task": {
+      "path": "tasks/heston-mc-pricing",
+      "git_url": null,
+      "git_commit_id": null,
+      "name": null,
+      "ref": null,
+      "overwrite": false,
+      "download_dir": null,
+      "source": null
+    },
+    "trial_name": "fb-v10-opus46-heston-mc-pricing",
+    "trials_dir": "/workspace/fb-harbor/trials",
+    "timeout_multiplier": 1.0,
+    "agent_timeout_multiplier": null,
+    "verifier_timeout_multiplier": null,
+    "agent_setup_timeout_multiplier": null,
+    "environment_build_timeout_multiplier": null,
+    "agent": {
+      "name": "claude-code",
+      "import_path": null,
+      "model_name": "bedrock/us.anthropic.claude-opus-4-6-v1",
+      "override_timeout_sec": null,
+      "override_setup_timeout_sec": null,
+      "max_timeout_sec": null,
+      "kwargs": {},
+      "env": {
+        "AWS_BEARER_TOKEN_BEDROCK": "<redacted>",
+        "CLAUDE_CODE_USE_BEDROCK": "1",
+        "AWS_REGION": "us-west-2",
+        "DISABLE_PROMPT_CACHING": "1",
+        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+      }
+    },
+    "environment": {
+      "type": "docker",
+      "import_path": null,
+      "force_build": false,
+      "delete": true,
+      "override_cpus": null,
+      "override_memory_mb": null,
+      "override_storage_mb": null,
+      "override_gpus": null,
+      "suppress_override_warnings": false,
+      "mounts_json": null,
+      "env": {},
+      "kwargs": {}
+    },
+    "verifier": {
+      "override_timeout_sec": null,
+      "max_timeout_sec": null,
+      "env": {},
+      "disable": false
+    },
+    "artifacts": [],
+    "job_id": null
+  },
+  "agent_info": {
+    "name": "claude-code",
+    "version": "2.1.126",
+    "model_info": {
+      "name": "us.anthropic.claude-opus-4-6-v1",
+      "provider": "bedrock"
+    }
+  },
+  "agent_result": {
+    "n_input_tokens": 222151,
+    "n_cache_tokens": 0,
+    "n_output_tokens": 2589,
+    "cost_usd": 1.17548,
+    "rollout_details": null,
+    "metadata": null
+  },
+  "verifier_result": {
+    "rewards": {
+      "reward": 1.0
+    }
+  },
+  "exception_info": null,
+  "started_at": "2026-05-02T11:31:08.908480Z",
+  "finished_at": "2026-05-02T11:32:25.458830Z",
+  "environment_setup": {
+    "started_at": "2026-05-02T11:31:08.959214Z",
+    "finished_at": "2026-05-02T11:31:10.398930Z"
+  },
+  "agent_setup": {
+    "started_at": "2026-05-02T11:31:10.399000Z",
+    "finished_at": "2026-05-02T11:31:21.271336Z"
+  },
+  "agent_execution": {
+    "started_at": "2026-05-02T11:31:21.271470Z",
+    "finished_at": "2026-05-02T11:32:10.044641Z"
+  },
+  "verifier": {
+    "started_at": "2026-05-02T11:32:10.486467Z",
+    "finished_at": "2026-05-02T11:32:14.724473Z"
+  },
+  "step_results": null
+}

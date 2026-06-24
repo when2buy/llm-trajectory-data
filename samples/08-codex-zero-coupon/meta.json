@@ -1,0 +1,19 @@
+{
+  "agent": "codex",
+  "agent_version": "0.128.0",
+  "model": "gpt-5.4",
+  "atif_schema_version": "ATIF-v1.5",
+  "n_steps": 13,
+  "n_steps_with_per_step_tokens": 0,
+  "n_tool_steps": 6,
+  "tools_used": {},
+  "reward": 1.0,
+  "total_prompt_tokens": 59322,
+  "total_completion_tokens": 4877,
+  "total_cached_tokens": 50176,
+  "reasoning_output_tokens": 2493,
+  "total_cost_usd": 0.108564,
+  "category": "codex",
+  "task": "zero-coupon-bootstrapping",
+  "source_trial": "fb-codex-55-zero-coupon-bootstrapping"
+}

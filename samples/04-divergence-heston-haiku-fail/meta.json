@@ -1,0 +1,24 @@
+{
+  "agent": "claude-code",
+  "agent_version": "2.1.126",
+  "model": "claude-haiku-4-5-20251001",
+  "atif_schema_version": "ATIF-v1.2",
+  "n_steps": 98,
+  "n_steps_with_per_step_tokens": 59,
+  "n_tool_steps": 58,
+  "tools_used": {
+    "Bash": 34,
+    "Write": 1,
+    "Edit": 22,
+    "Read": 1
+  },
+  "reward": 0.0,
+  "total_prompt_tokens": 3133827,
+  "total_completion_tokens": 44319,
+  "total_cached_tokens": 0,
+  "reasoning_output_tokens": null,
+  "total_cost_usd": 3.355422,
+  "category": "divergence",
+  "task": "heston-mc-pricing",
+  "source_trial": "fb-v10-h45-heston-mc-pricing"
+}

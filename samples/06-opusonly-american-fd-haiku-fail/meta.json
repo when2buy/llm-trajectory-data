@@ -1,0 +1,23 @@
+{
+  "agent": "claude-code",
+  "agent_version": "2.1.123",
+  "model": "claude-haiku-4-5-20251001",
+  "atif_schema_version": "ATIF-v1.2",
+  "n_steps": 28,
+  "n_steps_with_per_step_tokens": 16,
+  "n_tool_steps": 15,
+  "tools_used": {
+    "Write": 5,
+    "Bash": 7,
+    "Edit": 3
+  },
+  "reward": 0.0,
+  "total_prompt_tokens": 582558,
+  "total_completion_tokens": 30777,
+  "total_cached_tokens": 0,
+  "reasoning_output_tokens": null,
+  "total_cost_usd": 0.12366,
+  "category": "opus-only",
+  "task": "american-option-fd-new",
+  "source_trial": "fb-v10-h45-american-option-fd-new"
+}

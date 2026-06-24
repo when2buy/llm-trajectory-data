@@ -1,0 +1,200 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777757272.247108,
+      "stop": 1777757273.512698
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::test_results_json_exists",
+        "status": "passed",
+        "duration": 0.00785503862425685,
+        "start": 1777757273.3440053,
+        "stop": 1777757273.3524084,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_trades_csv_exists",
+        "status": "passed",
+        "duration": 0.007163054775446653,
+        "start": 1777757273.352574,
+        "stop": 1777757273.3603446,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_daily_portfolio_csv_exists",
+        "status": "passed",
+        "duration": 0.007857863791286945,
+        "start": 1777757273.3605297,
+        "stop": 1777757273.369364,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_cumulative_returns_html_exists",
+        "status": "passed",
+        "duration": 0.006677073892205954,
+        "start": 1777757273.3695822,
+        "stop": 1777757273.376752,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_results_has_spy_key",
+        "status": "passed",
+        "duration": 0.006720343139022589,
+        "start": 1777757273.3769066,
+        "stop": 1777757273.3841343,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_num_trades",
+        "status": "passed",
+        "duration": 0.007600026670843363,
+        "start": 1777757273.384335,
+        "stop": 1777757273.3923924,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_num_trading_days",
+        "status": "passed",
+        "duration": 0.007205233443528414,
+        "start": 1777757273.3925493,
+        "stop": 1777757273.4003263,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_total_return",
+        "status": "passed",
+        "duration": 0.007903740741312504,
+        "start": 1777757273.4005046,
+        "stop": 1777757273.4094658,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_final_capital",
+        "status": "passed",
+        "duration": 0.006567724049091339,
+        "start": 1777757273.40966,
+        "stop": 1777757273.416667,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_win_rate",
+        "status": "passed",
+        "duration": 0.007157367188483477,
+        "start": 1777757273.4167852,
+        "stop": 1777757273.4242215,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_total_pnl",
+        "status": "passed",
+        "duration": 0.007881572935730219,
+        "start": 1777757273.4243984,
+        "stop": 1777757273.4327698,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_max_drawdown_positive",
+        "status": "passed",
+        "duration": 0.007434905972331762,
+        "start": 1777757273.4329188,
+        "stop": 1777757273.4408226,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_sharpe_ratio_positive",
+        "status": "passed",
+        "duration": 0.007665068376809359,
+        "start": 1777757273.4409692,
+        "stop": 1777757273.4493206,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_annualized_return",
+        "status": "passed",
+        "duration": 0.007013075519353151,
+        "start": 1777757273.4495382,
+        "stop": 1777757273.4571304,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_trades_columns",
+        "status": "passed",
+        "duration": 0.008404289837926626,
+        "start": 1777757273.4572937,
+        "stop": 1777757273.466646,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_trades_ticker",
+        "status": "passed",
+        "duration": 0.00877609895542264,
+        "start": 1777757273.4668257,
+        "stop": 1777757273.4760258,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_trades_count",
+        "status": "passed",
+        "duration": 0.008003262802958488,
+        "start": 1777757273.4762046,
+        "stop": 1777757273.4846592,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_portfolio_columns",
+        "status": "passed",
+        "duration": 0.009702000766992569,
+        "start": 1777757273.4848342,
+        "stop": 1777757273.4951248,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_portfolio_starts_at_one",
+        "status": "passed",
+        "duration": 0.007343009114265442,
+        "start": 1777757273.4952881,
+        "stop": 1777757273.5029705,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_portfolio_length",
+        "status": "passed",
+        "duration": 0.008119117468595505,
+        "start": 1777757273.5031111,
+        "stop": 1777757273.511842,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      }
+    ]
+  }
+}

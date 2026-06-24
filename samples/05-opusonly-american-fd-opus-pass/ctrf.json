@@ -1,0 +1,506 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 54,
+      "passed": 54,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777975564.7712975,
+      "stop": 1777975565.5714345
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::TestFileExistence::test_option_values_json_exists",
+        "status": "passed",
+        "duration": 0.0052747458685189486,
+        "start": 1777975565.2771256,
+        "stop": 1777975565.28278,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_american_put_grid_csv_exists",
+        "status": "passed",
+        "duration": 0.004890781012363732,
+        "start": 1777975565.2829642,
+        "stop": 1777975565.2881691,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_early_exercise_boundary_csv_exists",
+        "status": "passed",
+        "duration": 0.004821988986805081,
+        "start": 1777975565.2883468,
+        "stop": 1777975565.2934654,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_greeks_csv_exists",
+        "status": "passed",
+        "duration": 0.004873252008110285,
+        "start": 1777975565.2936325,
+        "stop": 1777975565.2987854,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_convergence_csv_exists",
+        "status": "passed",
+        "duration": 0.004731675959192216,
+        "start": 1777975565.298954,
+        "stop": 1777975565.3039498,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_exercise_boundary_png_exists",
+        "status": "passed",
+        "duration": 0.0046466110507026315,
+        "start": 1777975565.3041108,
+        "stop": 1777975565.3090153,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_summary_json_exists",
+        "status": "passed",
+        "duration": 0.004696513875387609,
+        "start": 1777975565.309175,
+        "stop": 1777975565.314117,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_has_all_keys",
+        "status": "passed",
+        "duration": 0.00469953496940434,
+        "start": 1777975565.3142846,
+        "stop": 1777975565.3192384,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_all_positive",
+        "status": "passed",
+        "duration": 0.004691472975537181,
+        "start": 1777975565.3193922,
+        "stop": 1777975565.3243327,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_european_put_range",
+        "status": "passed",
+        "duration": 0.004730995977297425,
+        "start": 1777975565.3244877,
+        "stop": 1777975565.3294811,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_european_call_range",
+        "status": "passed",
+        "duration": 0.0046660531079396605,
+        "start": 1777975565.32963,
+        "stop": 1777975565.3345444,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_american_put_range",
+        "status": "passed",
+        "duration": 0.004654171876609325,
+        "start": 1777975565.3346956,
+        "stop": 1777975565.3396146,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_american_call_range",
+        "status": "passed",
+        "duration": 0.0046581929782405496,
+        "start": 1777975565.3397639,
+        "stop": 1777975565.3446705,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_american_put_geq_european_put",
+        "status": "passed",
+        "duration": 0.004684663028456271,
+        "start": 1777975565.344825,
+        "stop": 1777975565.3497634,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_american_call_geq_european_call",
+        "status": "passed",
+        "duration": 0.004715414019301534,
+        "start": 1777975565.349913,
+        "stop": 1777975565.3549087,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_put_early_exercise_premium_positive",
+        "status": "passed",
+        "duration": 0.004713142989203334,
+        "start": 1777975565.3550737,
+        "stop": 1777975565.3600338,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_call_early_exercise_premium_with_dividends",
+        "status": "passed",
+        "duration": 0.004727126099169254,
+        "start": 1777975565.360183,
+        "stop": 1777975565.3651714,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_american_call_equals_european_call",
+        "status": "passed",
+        "duration": 0.004750096006318927,
+        "start": 1777975565.365323,
+        "stop": 1777975565.3703306,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_american_put_geq_european_put",
+        "status": "passed",
+        "duration": 0.0047862270148471,
+        "start": 1777975565.37048,
+        "stop": 1777975565.375515,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_european_call_range",
+        "status": "passed",
+        "duration": 0.00473668600898236,
+        "start": 1777975565.3756912,
+        "stop": 1777975565.3806946,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_european_put_range",
+        "status": "passed",
+        "duration": 0.004851470934227109,
+        "start": 1777975565.3808565,
+        "stop": 1777975565.3859763,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_dividends_increase_put_value",
+        "status": "passed",
+        "duration": 0.004748056060634553,
+        "start": 1777975565.3861358,
+        "stop": 1777975565.3911374,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_dividends_decrease_call_value",
+        "status": "passed",
+        "duration": 0.004769618040882051,
+        "start": 1777975565.3912947,
+        "stop": 1777975565.396322,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_row_count",
+        "status": "passed",
+        "duration": 0.0059075611643493176,
+        "start": 1777975565.396481,
+        "stop": 1777975565.4026587,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_at_maturity",
+        "status": "passed",
+        "duration": 0.00571849406696856,
+        "start": 1777975565.402817,
+        "stop": 1777975565.4087899,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_all_below_strike",
+        "status": "passed",
+        "duration": 0.005921161035075784,
+        "start": 1777975565.4089482,
+        "stop": 1777975565.4151433,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_all_non_negative",
+        "status": "passed",
+        "duration": 0.005778706050477922,
+        "start": 1777975565.415302,
+        "stop": 1777975565.4213765,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_has_nonzero_points",
+        "status": "passed",
+        "duration": 0.0058141989866271615,
+        "start": 1777975565.4215348,
+        "stop": 1777975565.4276912,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_near_last_dividend",
+        "status": "passed",
+        "duration": 0.005698855035007,
+        "start": 1777975565.4278502,
+        "stop": 1777975565.4338233,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_increases_toward_maturity",
+        "status": "passed",
+        "duration": 0.005688262986950576,
+        "start": 1777975565.4339788,
+        "stop": 1777975565.4399223,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_put_delta_near_minus_one",
+        "status": "passed",
+        "duration": 0.007950321887619793,
+        "start": 1777975565.4400811,
+        "stop": 1777975565.4483476,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_greeks_csv_structure",
+        "status": "passed",
+        "duration": 0.004821977927349508,
+        "start": 1777975565.448506,
+        "stop": 1777975565.4536138,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_greeks_has_all_types",
+        "status": "passed",
+        "duration": 0.004701734054833651,
+        "start": 1777975565.45377,
+        "stop": 1777975565.4587278,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_put_deltas_negative",
+        "status": "passed",
+        "duration": 0.004726635059341788,
+        "start": 1777975565.458883,
+        "stop": 1777975565.463869,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_call_deltas_positive",
+        "status": "passed",
+        "duration": 0.00468707294203341,
+        "start": 1777975565.4640229,
+        "stop": 1777975565.4689682,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_european_put_delta_range",
+        "status": "passed",
+        "duration": 0.004712725058197975,
+        "start": 1777975565.4691205,
+        "stop": 1777975565.4740922,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_european_call_delta_range",
+        "status": "passed",
+        "duration": 0.004687392967753112,
+        "start": 1777975565.4742439,
+        "stop": 1777975565.479226,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_put_call_delta_sum",
+        "status": "passed",
+        "duration": 0.00471420306712389,
+        "start": 1777975565.4793787,
+        "stop": 1777975565.4843552,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_convergence_csv_structure",
+        "status": "passed",
+        "duration": 0.004718926036730409,
+        "start": 1777975565.48451,
+        "stop": 1777975565.489492,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_fine_coarse_similar",
+        "status": "passed",
+        "duration": 0.004772766958922148,
+        "start": 1777975565.489644,
+        "stop": 1777975565.4946656,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_richardson_closer_to_fine",
+        "status": "passed",
+        "duration": 0.0048845019191503525,
+        "start": 1777975565.4948225,
+        "stop": 1777975565.4999855,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_richardson_formula_correct",
+        "status": "passed",
+        "duration": 0.004725245060399175,
+        "start": 1777975565.500138,
+        "stop": 1777975565.505119,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_convergence_ratio",
+        "status": "passed",
+        "duration": 0.004620169987902045,
+        "start": 1777975565.505271,
+        "stop": 1777975565.5101552,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_has_rows",
+        "status": "passed",
+        "duration": 0.005630950094200671,
+        "start": 1777975565.5103083,
+        "stop": 1777975565.516202,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_has_S_column",
+        "status": "passed",
+        "duration": 0.005518948193639517,
+        "start": 1777975565.5163581,
+        "stop": 1777975565.5221496,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_values_non_negative",
+        "status": "passed",
+        "duration": 0.006306858034804463,
+        "start": 1777975565.5223036,
+        "stop": 1777975565.5288796,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_at_S0_interpolated_matches_price",
+        "status": "passed",
+        "duration": 0.005700024077668786,
+        "start": 1777975565.529036,
+        "stop": 1777975565.5350156,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_has_all_keys",
+        "status": "passed",
+        "duration": 0.004685663850978017,
+        "start": 1777975565.5351715,
+        "stop": 1777975565.5401125,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_flags_true",
+        "status": "passed",
+        "duration": 0.004709394066594541,
+        "start": 1777975565.5402656,
+        "stop": 1777975565.545227,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_no_div_call_diff",
+        "status": "passed",
+        "duration": 0.004681192920543253,
+        "start": 1777975565.5453804,
+        "stop": 1777975565.5503056,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_put_premium_positive",
+        "status": "passed",
+        "duration": 0.004620491061359644,
+        "start": 1777975565.5504582,
+        "stop": 1777975565.555337,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_call_premium_positive",
+        "status": "passed",
+        "duration": 0.004886101000010967,
+        "start": 1777975565.5554955,
+        "stop": 1777975565.5606563,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_boundary_at_T",
+        "status": "passed",
+        "duration": 0.004864359856583178,
+        "start": 1777975565.560815,
+        "stop": 1777975565.5659676,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_convergence_ratio",
+        "status": "passed",
+        "duration": 0.004669572808779776,
+        "start": 1777975565.5661216,
+        "stop": 1777975565.5710547,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      }
+    ]
+  }
+}

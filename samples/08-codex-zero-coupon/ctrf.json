@@ -1,0 +1,74 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777628472.2371821,
+      "stop": 1777628472.8073568
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::test_files_exist",
+        "status": "passed",
+        "duration": 0.007729711243882775,
+        "start": 1777628472.7561953,
+        "stop": 1777628472.7642653,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_all_maturities_present",
+        "status": "passed",
+        "duration": 0.007891686167567968,
+        "start": 1777628472.764482,
+        "stop": 1777628472.7727578,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_zero_rates_increasing",
+        "status": "passed",
+        "duration": 0.00813602888956666,
+        "start": 1777628472.772916,
+        "stop": 1777628472.7819033,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_df_consistent_with_zero_rates",
+        "status": "passed",
+        "duration": 0.007529616821557283,
+        "start": 1777628472.782083,
+        "stop": 1777628472.7904558,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_par_bond_reprices_at_par",
+        "status": "passed",
+        "duration": 0.007124117109924555,
+        "start": 1777628472.7906508,
+        "stop": 1777628472.7984579,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_discount_factors_decreasing",
+        "status": "passed",
+        "duration": 0.007252601208165288,
+        "start": 1777628472.7986462,
+        "stop": 1777628472.806733,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      }
+    ]
+  }
+}

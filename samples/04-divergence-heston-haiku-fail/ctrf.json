@@ -1,0 +1,116 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 10,
+      "passed": 8,
+      "failed": 2,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777630315.8220994,
+      "stop": 1777630316.4461799
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::test_results_file_exists",
+        "status": "passed",
+        "duration": 0.0067780502140522,
+        "start": 1777630316.3466532,
+        "stop": 1777630316.353834,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_required_keys",
+        "status": "passed",
+        "duration": 0.007560111815109849,
+        "start": 1777630316.3540323,
+        "stop": 1777630316.3623874,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_prices_positive",
+        "status": "passed",
+        "duration": 0.007475791731849313,
+        "start": 1777630316.3625836,
+        "stop": 1777630316.3708613,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_mc_call_within_2pct_of_analytical",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.007095494773238897,
+        "start": 1777630316.3710485,
+        "stop": 1777630316.3920515,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "results = {'analytical_call': 11.088854999775997, 'analytical_put': 6.21179744984741, 'mc_call': 10.36775922605859, 'mc_put': 5.494502229683437, ...}\n\n    def test_mc_call_within_2pct_of_analytical(results):\n        mc = results[\"mc_call\"]\n        analyt = results[\"analytical_call\"]\n        rel_error = abs(mc - analyt) / analyt\n>       assert rel_error < 0.02, (\n            f\"MC call {mc:.4f} differs from analytical {analyt:.4f} by {rel_error*100:.2f}% (limit: 2%)\"\n        )\nE       AssertionError: MC call 10.3678 differs from analytical 11.0889 by 6.50% (limit: 2%)\nE       assert 0.06502887572539937 < 0.02\n\n/tests/test_outputs.py:38: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::test_mc_put_within_2pct_of_analytical",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.007462338078767061,
+        "start": 1777630316.3922272,
+        "stop": 1777630316.402879,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "results = {'analytical_call': 11.088854999775997, 'analytical_put': 6.21179744984741, 'mc_call': 10.36775922605859, 'mc_put': 5.494502229683437, ...}\n\n    def test_mc_put_within_2pct_of_analytical(results):\n        mc = results[\"mc_put\"]\n        analyt = results[\"analytical_put\"]\n        rel_error = abs(mc - analyt) / analyt\n>       assert rel_error < 0.02, (\n            f\"MC put {mc:.4f} differs from analytical {analyt:.4f} by {rel_error*100:.2f}% (limit: 2%)\"\n        )\nE       AssertionError: MC put 5.4945 differs from analytical 6.2118 by 11.55% (limit: 2%)\nE       assert 0.11547305364594469 < 0.02\n\n/tests/test_outputs.py:47: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::test_put_call_parity_mc",
+        "status": "passed",
+        "duration": 0.007122867740690708,
+        "start": 1777630316.4030473,
+        "stop": 1777630316.4107497,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_analytical_put_call_parity",
+        "status": "passed",
+        "duration": 0.008023420814424753,
+        "start": 1777630316.4109237,
+        "stop": 1777630316.4196875,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_call_greater_than_intrinsic",
+        "status": "passed",
+        "duration": 0.0074002190958708525,
+        "start": 1777630316.4198995,
+        "stop": 1777630316.4280443,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_call_greater_than_put_positive_rate",
+        "status": "passed",
+        "duration": 0.007894512731581926,
+        "start": 1777630316.4282436,
+        "stop": 1777630316.4368343,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::test_analytical_call_not_exceeds_spot",
+        "status": "passed",
+        "duration": 0.007860947865992785,
+        "start": 1777630316.4370236,
+        "stop": 1777630316.4454193,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      }
+    ]
+  }
+}

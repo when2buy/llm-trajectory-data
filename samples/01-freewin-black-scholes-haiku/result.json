@@ -1,0 +1,111 @@
+{
+  "id": "63d8bd56-4227-4e73-8a84-46f699048a3e",
+  "task_name": "black-scholes-pricing",
+  "trial_name": "fb-v10-h45-black-scholes-pricing",
+  "trial_uri": "file:///workspace/fb-harbor/trials/fb-v10-h45-black-scholes-pricing",
+  "task_id": {
+    "path": "tasks/black-scholes-pricing"
+  },
+  "source": null,
+  "task_checksum": "03d072525153818b5f2899bfd4c8b8d2a19ee1b8fab9ee62e220eecd447263ed",
+  "config": {
+    "task": {
+      "path": "tasks/black-scholes-pricing",
+      "git_url": null,
+      "git_commit_id": null,
+      "name": null,
+      "ref": null,
+      "overwrite": false,
+      "download_dir": null,
+      "source": null
+    },
+    "trial_name": "fb-v10-h45-black-scholes-pricing",
+    "trials_dir": "/workspace/fb-harbor/trials",
+    "timeout_multiplier": 1.0,
+    "agent_timeout_multiplier": null,
+    "verifier_timeout_multiplier": null,
+    "agent_setup_timeout_multiplier": null,
+    "environment_build_timeout_multiplier": null,
+    "agent": {
+      "name": "claude-code",
+      "import_path": null,
+      "model_name": "bedrock/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "override_timeout_sec": null,
+      "override_setup_timeout_sec": null,
+      "max_timeout_sec": null,
+      "kwargs": {
+        "max_thinking_tokens": 0
+      },
+      "env": {
+        "AWS_BEARER_TOKEN_BEDROCK": "<redacted>",
+        "CLAUDE_CODE_USE_BEDROCK": "1",
+        "AWS_REGION": "us-west-2",
+        "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+        "DISABLE_PROMPT_CACHING": "1"
+      }
+    },
+    "environment": {
+      "type": "docker",
+      "import_path": null,
+      "force_build": false,
+      "delete": true,
+      "override_cpus": null,
+      "override_memory_mb": null,
+      "override_storage_mb": null,
+      "override_gpus": null,
+      "suppress_override_warnings": false,
+      "mounts_json": null,
+      "env": {},
+      "kwargs": {}
+    },
+    "verifier": {
+      "override_timeout_sec": null,
+      "max_timeout_sec": null,
+      "env": {},
+      "disable": false
+    },
+    "artifacts": [],
+    "job_id": null
+  },
+  "agent_info": {
+    "name": "claude-code",
+    "version": "2.1.123",
+    "model_info": {
+      "name": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "provider": "bedrock"
+    }
+  },
+  "agent_result": {
+    "n_input_tokens": 274863,
+    "n_cache_tokens": 0,
+    "n_output_tokens": 2631,
+    "cost_usd": 0.144609,
+    "rollout_details": null,
+    "metadata": null
+  },
+  "verifier_result": {
+    "rewards": {
+      "reward": 1.0
+    }
+  },
+  "exception_info": null,
+  "started_at": "2026-04-29T17:32:36.485608Z",
+  "finished_at": "2026-04-29T17:39:30.104259Z",
+  "environment_setup": {
+    "started_at": "2026-04-29T17:32:36.882591Z",
+    "finished_at": "2026-04-29T17:32:41.462439Z"
+  },
+  "agent_setup": {
+    "started_at": "2026-04-29T17:32:41.462495Z",
+    "finished_at": "2026-04-29T17:33:11.589459Z"
+  },
+  "agent_execution": {
+    "started_at": "2026-04-29T17:33:11.589552Z",
+    "finished_at": "2026-04-29T17:39:13.703499Z"
+  },
+  "verifier": {
+    "started_at": "2026-04-29T17:39:14.236034Z",
+    "finished_at": "2026-04-29T17:39:19.001047Z"
+  },
+  "step_results": null
+}

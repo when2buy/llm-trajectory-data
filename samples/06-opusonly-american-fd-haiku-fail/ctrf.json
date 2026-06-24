@@ -1,0 +1,578 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest",
+      "version": "8.4.1"
+    },
+    "summary": {
+      "tests": 54,
+      "passed": 30,
+      "failed": 24,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1777484656.3501859,
+      "stop": 1777484657.540353
+    },
+    "tests": [
+      {
+        "name": "test_outputs.py::TestFileExistence::test_option_values_json_exists",
+        "status": "passed",
+        "duration": 0.005204007014981471,
+        "start": 1777484656.9371188,
+        "stop": 1777484656.942712,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_american_put_grid_csv_exists",
+        "status": "passed",
+        "duration": 0.004926551002427004,
+        "start": 1777484656.9428976,
+        "stop": 1777484656.9481277,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_early_exercise_boundary_csv_exists",
+        "status": "passed",
+        "duration": 0.004981054007657804,
+        "start": 1777484656.9483027,
+        "stop": 1777484656.9536033,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_greeks_csv_exists",
+        "status": "passed",
+        "duration": 0.004804436000995338,
+        "start": 1777484656.9537797,
+        "stop": 1777484656.9588723,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_convergence_csv_exists",
+        "status": "passed",
+        "duration": 0.00479121899115853,
+        "start": 1777484656.9590473,
+        "stop": 1777484656.9641018,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_exercise_boundary_png_exists",
+        "status": "passed",
+        "duration": 0.004903140987153165,
+        "start": 1777484656.964266,
+        "stop": 1777484656.9694352,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestFileExistence::test_summary_json_exists",
+        "status": "passed",
+        "duration": 0.004850508994422853,
+        "start": 1777484656.9696014,
+        "stop": 1777484656.974718,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_has_all_keys",
+        "status": "passed",
+        "duration": 0.004821169015485793,
+        "start": 1777484656.9748912,
+        "stop": 1777484656.9799736,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_all_positive",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004979251025361009,
+        "start": 1777484656.9801369,
+        "stop": 1777484657.017983,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestOptionValues object at 0x7effe4104d90>\n\n    def test_all_positive(self):\n        data = load_json(\"option_values.json\")\n        for key in [\"american_put\", \"american_call\", \"european_put\", \"european_call\"]:\n>           assert data[key] > 0, f\"{key} = {data[key]}, expected positive\"\nE           AssertionError: american_put = 0.0, expected positive\nE           assert 0.0 > 0\n\n/tests/test_outputs.py:78: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_european_put_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005122035989188589,
+        "start": 1777484657.018169,
+        "stop": 1777484657.030405,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestOptionValues object at 0x7effe4105390>\n\n    def test_european_put_range(self):\n        \"\"\"European put with dividends should be ~11.42.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 10.0 < data[\"european_put\"] < 14.0, \\\n            f\"european_put = {data['european_put']:.4f}, expected in (10, 14)\"\nE       AssertionError: european_put = 0.0000, expected in (10, 14)\nE       assert 10.0 < 5.897429482151176e-17\n\n/tests/test_outputs.py:83: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_european_call_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004852889978792518,
+        "start": 1777484657.0305703,
+        "stop": 1777484657.0426922,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestOptionValues object at 0x7effe41059d0>\n\n    def test_european_call_range(self):\n        \"\"\"European call with dividends should be ~11.92.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 9.0 < data[\"european_call\"] < 14.0, \\\n            f\"european_call = {data['european_call']:.4f}, expected in (9, 14)\"\nE       AssertionError: european_call = 0.0000, expected in (9, 14)\nE       assert 9.0 < 1.6703059291367341e-09\n\n/tests/test_outputs.py:89: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_american_put_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005004482984077185,
+        "start": 1777484657.0428553,
+        "stop": 1777484657.0549052,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestOptionValues object at 0x7effe4105fd0>\n\n    def test_american_put_range(self):\n        \"\"\"American put with dividends should be ~11.80.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 10.0 < data[\"american_put\"] < 14.0, \\\n            f\"american_put = {data['american_put']:.4f}, expected in (10, 14)\"\nE       AssertionError: american_put = 0.0000, expected in (10, 14)\nE       assert 10.0 < 0.0\n\n/tests/test_outputs.py:95: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestOptionValues::test_american_call_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004886909999186173,
+        "start": 1777484657.0550737,
+        "stop": 1777484657.0672235,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestOptionValues object at 0x7effe41a1b90>\n\n    def test_american_call_range(self):\n        \"\"\"American call with dividends should be ~12.13.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 10.0 < data[\"american_call\"] < 15.0, \\\n            f\"american_call = {data['american_call']:.4f}, expected in (10, 15)\"\nE       AssertionError: american_call = 0.0101, expected in (10, 15)\nE       assert 10.0 < 0.010127669885268403\n\n/tests/test_outputs.py:101: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_american_put_geq_european_put",
+        "status": "passed",
+        "duration": 0.004778888003784232,
+        "start": 1777484657.0673876,
+        "stop": 1777484657.0724232,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_american_call_geq_european_call",
+        "status": "passed",
+        "duration": 0.00473900799988769,
+        "start": 1777484657.0725796,
+        "stop": 1777484657.077605,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_put_early_exercise_premium_positive",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004942731990013272,
+        "start": 1777484657.077759,
+        "stop": 1777484657.0897698,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestAmericanGeqEuropean object at 0x7effe4106890>\n\n    def test_put_early_exercise_premium_positive(self):\n        \"\"\"Early exercise premium for put should be meaningfully positive.\"\"\"\n        data = load_json(\"option_values.json\")\n        premium = data[\"american_put\"] - data[\"european_put\"]\n>       assert premium > 0.05, \\\n            f\"Put early exercise premium = {premium:.6f}, expected > 0.05\"\nE       AssertionError: Put early exercise premium = -0.000000, expected > 0.05\nE       assert -5.897429482151176e-17 > 0.05\n\n/tests/test_outputs.py:123: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanGeqEuropean::test_call_early_exercise_premium_with_dividends",
+        "status": "passed",
+        "duration": 0.004873268990195356,
+        "start": 1777484657.0899343,
+        "stop": 1777484657.0950713,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_american_call_equals_european_call",
+        "status": "passed",
+        "duration": 0.004904461005935445,
+        "start": 1777484657.0952258,
+        "stop": 1777484657.1003954,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_american_put_geq_european_put",
+        "status": "passed",
+        "duration": 0.004896350001217797,
+        "start": 1777484657.10055,
+        "stop": 1777484657.1057394,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_european_call_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005098506007925607,
+        "start": 1777484657.1058922,
+        "stop": 1777484657.1180825,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestNoDividend object at 0x7effe4107b90>\n\n    def test_no_div_european_call_range(self):\n        \"\"\"BS call (S0=100, K=100, r=0.05, sigma=0.30, T=1) ~ 14.23.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 13.0 < data[\"european_call_no_div\"] < 16.0, \\\n            f\"european_call_no_div = {data['european_call_no_div']:.4f}, expected ~14.23\"\nE       AssertionError: european_call_no_div = 0.0000, expected ~14.23\nE       assert 13.0 < 5.609375189007056e-11\n\n/tests/test_outputs.py:152: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_no_div_european_put_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.0052100980101386085,
+        "start": 1777484657.118243,
+        "stop": 1777484657.1306953,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestNoDividend object at 0x7effe4108210>\n\n    def test_no_div_european_put_range(self):\n        \"\"\"BS put ~ 9.35.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert 8.0 < data[\"european_put_no_div\"] < 11.0, \\\n            f\"european_put_no_div = {data['european_put_no_div']:.4f}, expected ~9.35\"\nE       AssertionError: european_put_no_div = 0.0000, expected ~9.35\nE       assert 8.0 < 5.60488177404409e-11\n\n/tests/test_outputs.py:158: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_dividends_increase_put_value",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004978651995770633,
+        "start": 1777484657.1308553,
+        "stop": 1777484657.1428227,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestNoDividend object at 0x7effe4108810>\n\n    def test_dividends_increase_put_value(self):\n        \"\"\"Cash dividends reduce forward price, so European put with divs > without.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert data[\"european_put\"] > data[\"european_put_no_div\"], \\\n            f\"Eu put with div ({data['european_put']:.4f}) should exceed without ({data['european_put_no_div']:.4f})\"\nE       AssertionError: Eu put with div (0.0000) should exceed without (0.0000)\nE       assert 5.897429482151176e-17 > 5.60488177404409e-11\n\n/tests/test_outputs.py:164: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestNoDividend::test_dividends_decrease_call_value",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004956010991008952,
+        "start": 1777484657.1429918,
+        "stop": 1777484657.1552627,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestNoDividend object at 0x7effe4108e10>\n\n    def test_dividends_decrease_call_value(self):\n        \"\"\"Cash dividends reduce forward price, so European call with divs < without.\"\"\"\n        data = load_json(\"option_values.json\")\n>       assert data[\"european_call\"] < data[\"european_call_no_div\"], \\\n            f\"Eu call with div ({data['european_call']:.4f}) should be less than without ({data['european_call_no_div']:.4f})\"\nE       AssertionError: Eu call with div (0.0000) should be less than without (0.0000)\nE       assert 1.6703059291367341e-09 < 5.609375189007056e-11\n\n/tests/test_outputs.py:170: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_row_count",
+        "status": "passed",
+        "duration": 0.005980935995467007,
+        "start": 1777484657.155423,
+        "stop": 1777484657.161669,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_at_maturity",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005995417013764381,
+        "start": 1777484657.1618235,
+        "stop": 1777484657.1752653,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestEarlyExerciseBoundary object at 0x7effe4109a10>\n\n    def test_boundary_at_maturity(self):\n        \"\"\"At T, exercise boundary should be at or near K=100.\"\"\"\n        t, s = load_exercise_boundary()\n>       assert abs(s[-1] - 100.0) < 2.0, \\\n            f\"S*(T) = {s[-1]:.2f}, expected near K=100\"\nE       AssertionError: S*(T) = 300.00, expected near K=100\nE       assert np.float64(200.0) < 2.0\nE        +  where np.float64(200.0) = abs((np.float64(300.0) - 100.0))\n\n/tests/test_outputs.py:186: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_all_below_strike",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.01086983599816449,
+        "start": 1777484657.175429,
+        "stop": 1777484657.193554,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestEarlyExerciseBoundary object at 0x7effe410a010>\n\n    def test_boundary_all_below_strike(self):\n        \"\"\"For a put, S*(t) should always be <= K = 100.\"\"\"\n        _, s = load_exercise_boundary()\n>       assert np.all(s <= 101.0), f\"Some S* values exceed K=100: max={s.max():.2f}\"\nE       AssertionError: Some S* values exceed K=100: max=300.00\nE       assert np.False_\nE        +  where np.False_ = <function all at 0x7effe6dc2b70>(array([300., 300., 300., 300., 300., 300., 300., 300., 300., 300., 300.,\\n       300., 300., 300., 300., 300., 300., 30...    300., 300., 300., 300., 300., 300., 300., 300., 300., 300., 300.,\\n       300., 300., 300., 300., 300., 300., 300.]) <= 101.0)\nE        +    where <function all at 0x7effe6dc2b70> = np.all\n\n/tests/test_outputs.py:192: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_all_non_negative",
+        "status": "passed",
+        "duration": 0.006122457998571917,
+        "start": 1777484657.1937232,
+        "stop": 1777484657.200129,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_has_nonzero_points",
+        "status": "passed",
+        "duration": 0.005961903996649198,
+        "start": 1777484657.2002866,
+        "stop": 1777484657.2065506,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_near_last_dividend",
+        "status": "passed",
+        "duration": 0.005936153989750892,
+        "start": 1777484657.2067094,
+        "stop": 1777484657.212923,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_increases_toward_maturity",
+        "status": "passed",
+        "duration": 0.006066186004318297,
+        "start": 1777484657.2130778,
+        "stop": 1777484657.219431,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestEarlyExerciseBoundary::test_boundary_put_delta_near_minus_one",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.007539151003584266,
+        "start": 1777484657.2195992,
+        "stop": 1777484657.2357092,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestEarlyExerciseBoundary object at 0x7effe410be50>\n\n    def test_boundary_put_delta_near_minus_one(self):\n        \"\"\"At exercise boundary, put delta should be close to -1 (V approx K-S).\n    \n        In the exercise region V = K - S, so dV/dS = -1.  At the boundary S*(t)\n        the option is at the exercise/continuation interface.  The delta computed\n        from the sampled grid should be close to -1, i.e. between -1 and -0.9.\n        \"\"\"\n        t_bnd, s_bnd = load_exercise_boundary()\n        rows = load_csv_rows(\"american_put_grid.csv\")\n        s_grid = np.array([float(r[\"S\"]) for r in rows])\n        time_cols = [k for k in rows[0].keys() if k != \"S\"]\n        t_grid = np.array([float(tc) for tc in time_cols])\n        V = np.zeros((len(s_grid), len(t_grid)))\n        for si, row in enumerate(rows):\n            for ti, tc in enumerate(time_cols):\n                V[si, ti] = float(row[tc])\n        dS_samp = s_grid[1] - s_grid[0]\n        checked = 0\n        for t_check in [0.80, 0.85, 0.90, 0.95]:\n            idx_bnd = np.argmin(np.abs(t_bnd - t_check))\n            s_star = s_bnd[idx_bnd]\n            if s_star < 50 or s_star > 99:\n                continue\n            idx_t = np.argmin(np.abs(t_grid - t_check))\n            v_plus = np.interp(s_star + dS_samp, s_grid, V[:, idx_t])\n            v_minus = np.interp(s_star - dS_samp, s_grid, V[:, idx_t])\n            delta = (v_plus - v_minus) / (2 * dS_samp)\n            assert -1.0 < delta < -0.9, \\\n                f\"At t={t_check}, S*={s_star:.1f}: delta={delta:.4f}, expected in (-1.0, -0.9)\"\n            checked += 1\n>       assert checked >= 2, \\\n            f\"Only {checked} boundary points checked, need >= 2 with S* in (50, 99)\"\nE       AssertionError: Only 0 boundary points checked, need >= 2 with S* in (50, 99)\nE       assert 0 >= 2\n\n/tests/test_outputs.py:250: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_greeks_csv_structure",
+        "status": "passed",
+        "duration": 0.00485266899340786,
+        "start": 1777484657.2358737,
+        "stop": 1777484657.2410011,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_greeks_has_all_types",
+        "status": "passed",
+        "duration": 0.0049324020073981956,
+        "start": 1777484657.2411575,
+        "stop": 1777484657.2463577,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_put_deltas_negative",
+        "status": "passed",
+        "duration": 0.004871169992838986,
+        "start": 1777484657.2465124,
+        "stop": 1777484657.2516634,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_call_deltas_positive",
+        "status": "passed",
+        "duration": 0.004746665988932364,
+        "start": 1777484657.2518167,
+        "stop": 1777484657.2568338,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_european_put_delta_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004886301001533866,
+        "start": 1777484657.2569854,
+        "stop": 1777484657.269013,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestGreeks object at 0x7effe410af10>\n\n    def test_european_put_delta_range(self):\n        \"\"\"ATM put delta should be roughly -0.35 to -0.55.\"\"\"\n        rows = load_csv_rows(\"greeks.csv\")\n        for row in rows:\n            if row[\"option_type\"] == \"european_put\":\n                delta = float(row[\"delta\"])\n>               assert -0.55 < delta < -0.35, \\\n                    f\"european_put delta = {delta:.4f}, expected in (-0.55, -0.35)\"\nE               AssertionError: european_put delta = -0.0000, expected in (-0.55, -0.35)\nE               assert -1.2224928032075143e-15 < -0.35\n\n/tests/test_outputs.py:290: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_european_call_delta_range",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004929910981445573,
+        "start": 1777484657.2691731,
+        "stop": 1777484657.281125,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestGreeks object at 0x7effe41091d0>\n\n    def test_european_call_delta_range(self):\n        \"\"\"ATM call delta should be roughly 0.45 to 0.65.\"\"\"\n        rows = load_csv_rows(\"greeks.csv\")\n        for row in rows:\n            if row[\"option_type\"] == \"european_call\":\n                delta = float(row[\"delta\"])\n>               assert 0.45 < delta < 0.70, \\\n                    f\"european_call delta = {delta:.4f}, expected in (0.45, 0.70)\"\nE               AssertionError: european_call delta = 0.0000, expected in (0.45, 0.70)\nE               assert 0.45 < 3.340600833861895e-10\n\n/tests/test_outputs.py:299: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestGreeks::test_put_call_delta_sum",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005037923998315819,
+        "start": 1777484657.2812843,
+        "stop": 1777484657.3021746,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestGreeks object at 0x7effe4106d90>\n\n    def test_put_call_delta_sum(self):\n        \"\"\"For European options, delta_call + |delta_put| ~ 1.0.\"\"\"\n        rows = load_csv_rows(\"greeks.csv\")\n        deltas = {r[\"option_type\"]: float(r[\"delta\"]) for r in rows}\n        sum_abs = deltas[\"european_call\"] + abs(deltas[\"european_put\"])\n>       assert abs(sum_abs - 1.0) < 0.05, \\\n            f\"delta_call + |delta_put| = {sum_abs:.4f}, expected ~1.0\"\nE       AssertionError: delta_call + |delta_put| = 0.0000, expected ~1.0\nE       assert 0.9999999996659387 < 0.05\nE        +  where 0.9999999996659387 = abs((3.340613058789927e-10 - 1.0))\n\n/tests/test_outputs.py:307: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_convergence_csv_structure",
+        "status": "passed",
+        "duration": 0.004897520993836224,
+        "start": 1777484657.302352,
+        "stop": 1777484657.307504,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_fine_coarse_similar",
+        "status": "passed",
+        "duration": 0.004821459006052464,
+        "start": 1777484657.3076575,
+        "stop": 1777484657.3127747,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_richardson_closer_to_fine",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004940740996971726,
+        "start": 1777484657.312926,
+        "stop": 1777484657.3251624,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestConvergence object at 0x7effe4115890>\n\n    def test_richardson_closer_to_fine(self):\n        \"\"\"Richardson should be closer to true value than coarse.\"\"\"\n        rows = load_csv_rows(\"convergence.csv\")\n        prices = {r[\"grid\"]: float(r[\"price\"]) for r in rows}\n        diff_rich = abs(prices[\"richardson\"] - prices[\"fine\"])\n        diff_coarse = abs(prices[\"coarse\"] - prices[\"fine\"])\n>       assert diff_rich < diff_coarse, \\\n            f\"|rich-fine|={diff_rich:.6f} should be < |coarse-fine|={diff_coarse:.6f}\"\nE       AssertionError: |rich-fine|=0.000000 should be < |coarse-fine|=0.000000\nE       assert 0.0 < 0.0\n\n/tests/test_outputs.py:335: AssertionError",
+        "message": "The test failed in the call phase due to an assertion error"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_richardson_formula_correct",
+        "status": "passed",
+        "duration": 0.004947642009938136,
+        "start": 1777484657.325324,
+        "stop": 1777484657.3305326,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestConvergence::test_convergence_ratio",
+        "status": "passed",
+        "duration": 0.004959823010722175,
+        "start": 1777484657.330687,
+        "stop": 1777484657.3359385,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_has_rows",
+        "status": "passed",
+        "duration": 0.005629598002997227,
+        "start": 1777484657.3360927,
+        "stop": 1777484657.3419974,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_has_S_column",
+        "status": "passed",
+        "duration": 0.0053243719739839435,
+        "start": 1777484657.342159,
+        "stop": 1777484657.347743,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_values_non_negative",
+        "status": "passed",
+        "duration": 0.0061838100082241,
+        "start": 1777484657.3478944,
+        "stop": 1777484657.3543432,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestAmericanPutGrid::test_grid_at_S0_interpolated_matches_price",
+        "status": "passed",
+        "duration": 0.005588846994214691,
+        "start": 1777484657.3544939,
+        "stop": 1777484657.3603725,
+        "retries": 0,
+        "file_path": "test_outputs.py"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_has_all_keys",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005488794995471835,
+        "start": 1777484657.360652,
+        "stop": 1777484657.391648,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4160410>\n\n    def test_summary_has_all_keys(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:399: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_flags_true",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.005096454988233745,
+        "start": 1777484657.3919444,
+        "stop": 1777484657.417163,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4160a10>\n\n    def test_summary_flags_true(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:408: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_no_div_call_diff",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004941613005939871,
+        "start": 1777484657.4173582,
+        "stop": 1777484657.4415288,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4161010>\n\n    def test_summary_no_div_call_diff(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:413: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_put_premium_positive",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004913760989438742,
+        "start": 1777484657.4416964,
+        "stop": 1777484657.465773,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4161650>\n\n    def test_summary_put_premium_positive(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:418: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_call_premium_positive",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004921692001516931,
+        "start": 1777484657.4659417,
+        "stop": 1777484657.4903567,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4161c50>\n\n    def test_summary_call_premium_positive(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:423: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_boundary_at_T",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004931532006594352,
+        "start": 1777484657.4905288,
+        "stop": 1777484657.5150678,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4162250>\n\n    def test_summary_boundary_at_T(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:428: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      },
+      {
+        "name": "test_outputs.py::TestSummary::test_summary_convergence_ratio",
+        "status": "failed",
+        "raw_status": "call_failed",
+        "duration": 0.004884149006102234,
+        "start": 1777484657.5152342,
+        "stop": 1777484657.5399723,
+        "retries": 0,
+        "file_path": "test_outputs.py",
+        "trace": "self = <test_outputs.TestSummary object at 0x7effe4162850>\n\n    def test_summary_convergence_ratio(self):\n>       data = load_json(\"summary.json\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:433: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:19: in load_json\n    return json.load(f)\n           ^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/__init__.py:293: in load\n    return loads(fp.read(),\n/usr/local/lib/python3.11/json/__init__.py:346: in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.11/json/decoder.py:337: in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object at 0x7effe7797190>\ns = '{\\n  \"american_geq_european_put\": ', idx = 0\n\n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n    \n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n    \n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError: Expecting value: line 2 column 32 (char 33)\n\n/usr/local/lib/python3.11/json/decoder.py:355: JSONDecodeError",
+        "message": "The test failed in the call phase"
+      }
+    ]
+  }
+}
