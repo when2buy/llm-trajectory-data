@@ -76,16 +76,19 @@ Result: Opus 1.0 (control) → **Sonnet 0.59 avg (1/3 full pass, 58% cheaper) �
 this — the decisive step is exactly the one that cannot be safely downgraded.
 Full method & data: [docs/counterfactual.md](./docs/counterfactual.md).
 
-**4. LIVE routing (real agent loop, mid-run intervention) — the decisive experiment.** Not
-replay: the model emits a tool call, we *actually execute it*, feed the real result back,
-and a policy picks the model **per turn, mid-run**. On `sma-crossover-spy` (official 20-test
-verifier): **all_haiku is best — reward 1.0 at $0.32, ~89% cheaper than all_opus.** The
-"route the light turns to Haiku" policy (`light_haiku`) was the **worst** — 5× costlier than
-all_haiku *and* lower reward (0.85) — because switching models mid-trajectory forces one to
-continue on another's divergent solving path. **This disproves, by experiment, the idea that
-you can pick routable turns by reading the trace.** Easy tasks → go all-cheap; hard tasks
-(L3) → the decisive step still needs the strong model. Full writeup:
-[docs/live-routing.md](./docs/live-routing.md).
+**4. Routing the REAL Claude Code via a Bedrock proxy — the deployable experiment.** A
+routing proxy sits in front of the *actual* Claude Code (not a hand-written loop): Claude
+Code assembles its own prompt and drives the loop; the proxy only rewrites which model
+answers each Bedrock call. On `sma-crossover-spy` (official 20-test verifier), **every policy
+scored reward 1.0 — including forcing the whole main loop onto Haiku.** Downgrading the
+strong main-loop model to Haiku costs no reward on this easy task. A subtle bug found and
+fixed along the way: Claude Code sends Opus-only fields (`output_config.effort`, adaptive
+`thinking`) that Haiku rejects with a 400 — the proxy must strip them when downgrading. That
+same class of model-incompatible-request bug is what made an earlier hand-rolled "mixed"
+experiment look like mixing *hurt*; it doesn't. Full writeup + architecture:
+[docs/real-claude-code-routing.md](./docs/real-claude-code-routing.md). (An earlier
+hand-written-loop version is kept at [docs/live-routing.md](./docs/live-routing.md) with its
+caveats noted.)
 
 ---
 

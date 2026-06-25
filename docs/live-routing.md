@@ -1,4 +1,13 @@
-# Live routing — intervening mid-execution (the real experiment)
+# Live routing — intervening mid-execution (hand-written loop — superseded)
+
+> ⚠️ **Superseded by [real-claude-code-routing.md](./real-claude-code-routing.md).** This
+> version used a *hand-written* agent loop and *hand-assembled* per-turn context — both
+> flawed. In particular the "`light_haiku` is worst" result here was later traced to a
+> model-incompatible-request bug (mixing models forwarded Opus-only fields that Haiku
+> rejects), **not** a real property of routing. When the real Claude Code is routed through
+> a proxy (which never touches the prompt), downgrading to Haiku does *not* hurt reward on
+> this task. Read the real-Claude-Code writeup for the trustworthy result; this file is kept
+> for history.
 
 Everything before this doc (L1/L2 step classification, even the L3 single-step swap) worked
 from **recorded** trajectories. This experiment does not. It runs a **live agent loop** on a

@@ -1,0 +1,84 @@
+[
+  {
+    "task": "sma-crossover-spy",
+    "policy": "all_haiku",
+    "run": 0,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 23,
+    "served_mix": {
+      "claude-haiku-4-5-20251001-v1:0": 23
+    }
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "all_haiku",
+    "run": 1,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 18,
+    "served_mix": {
+      "claude-haiku-4-5-20251001-v1:0": 18
+    }
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "downgrade_main",
+    "run": 0,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 15,
+    "served_mix": {
+      "haiku": 1,
+      "claude-haiku-4-5-20251001-v1:0": 14
+    }
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "downgrade_main",
+    "run": 1,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 20,
+    "served_mix": {
+      "haiku": 1,
+      "claude-haiku-4-5-20251001-v1:0": 19
+    }
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "passthrough",
+    "run": 0,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 8,
+    "served_mix": {
+      "haiku": 1,
+      "claude-sonnet-4-6": 7
+    }
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "passthrough",
+    "run": 1,
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cc_exit": 0,
+    "n_model_calls": 9,
+    "served_mix": {
+      "haiku": 1,
+      "claude-sonnet-4-6": 8
+    }
+  }
+]
