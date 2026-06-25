@@ -1,0 +1,82 @@
+{
+  "task": "american-option-fd-new",
+  "trial": "fb-v12-opus47-american-option-fd-new",
+  "swapped_step": 12,
+  "step_role": "decisive codegen step (Write /app/solve.py) \u2014 determines ~all reward",
+  "method": "reconstruct exact pre-step context byte-for-byte; swap only step 12 to candidate model; run official 54-test verifier; 3 runs/model",
+  "ground_truth": {
+    "opus_original_reward": 1.0,
+    "opus_replay_control_reward": 1.0,
+    "opus_replay_cost_usd": 0.4002
+  },
+  "runs": [
+    {
+      "model": "opus",
+      "run": 0,
+      "reward": 1.0,
+      "detail": "54/54",
+      "cost_usd": 0.4002,
+      "note": "control"
+    },
+    {
+      "model": "sonnet",
+      "run": 0,
+      "reward": 0.0,
+      "detail": "NO_CODE \u2014 output hit 12k token cap, no Write emitted",
+      "cost_usd": 0.1724
+    },
+    {
+      "model": "sonnet",
+      "run": 1,
+      "reward": 1.0,
+      "detail": "54/54",
+      "cost_usd": 0.1724
+    },
+    {
+      "model": "sonnet",
+      "run": 2,
+      "reward": 0.778,
+      "detail": "42/54",
+      "cost_usd": 0.156
+    },
+    {
+      "model": "haiku",
+      "run": 0,
+      "reward": 0.0,
+      "detail": "0/54 runtime crash in PSOR projection",
+      "cost_usd": 0.0352
+    },
+    {
+      "model": "haiku",
+      "run": 1,
+      "reward": 0.63,
+      "detail": "34/54",
+      "cost_usd": 0.0339
+    },
+    {
+      "model": "haiku",
+      "run": 2,
+      "reward": 0.0,
+      "detail": "TIMEOUT >240s, non-convergent",
+      "cost_usd": 0.034
+    }
+  ],
+  "summary": {
+    "opus": {
+      "avg_reward": 1.0,
+      "full_pass_rate": 1.0,
+      "avg_cost_usd": 0.4002
+    },
+    "sonnet": {
+      "avg_reward": 0.593,
+      "full_pass_rate": 0.33,
+      "avg_cost_usd": 0.1669
+    },
+    "haiku": {
+      "avg_reward": 0.21,
+      "full_pass_rate": 0.0,
+      "avg_cost_usd": 0.0344
+    }
+  },
+  "conclusion": "On THIS decisive codegen step of a hard task: Haiku cannot substitute (code crashes / non-convergent, reward 1.0->0.21). Sonnet can but is unreliable (1/3 full pass). Surface routability (L1) said 30% of steps are 'light' here, but the heavy step is NOT safely downgradable. Safe routability must be measured, not inferred. Implication: route = cheap-first + verifier/health-check + auto-escalate, not static per-step downgrade."
+}

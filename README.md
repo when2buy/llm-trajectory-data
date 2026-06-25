@@ -68,6 +68,15 @@ steps and 3.1M input tokens** (22 failed Edit loops), never converged, and cost 
 2.8× more — for reward 0.0.** Detecting this early is the router's core job, and it is only
 possible because the trace records per-step tools, errors, and tokens.
 
+**3. Safe routability must be *measured*, not inferred (L3 counterfactual).** We took an
+Opus trajectory that scored 1.0, reconstructed the exact context at its decisive codegen
+step, swapped *only that step* to a cheaper model, and re-ran the official 54-test verifier.
+Result: Opus 1.0 (control) → **Sonnet 0.59 avg (1/3 full pass, 58% cheaper) → Haiku 0.21
+(0/3, code crashes / non-convergent)**. The "light step %" from the trace said nothing about
+this — the decisive step is exactly the one that cannot be safely downgraded. The router
+design that follows: **cheap-first + verify + auto-escalate**, not static per-step rules.
+Full method & data: [docs/counterfactual.md](./docs/counterfactual.md).
+
 ---
 
 ## Provenance
