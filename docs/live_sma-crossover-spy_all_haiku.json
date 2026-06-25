@@ -1,0 +1,15 @@
+[
+  {
+    "task": "sma-crossover-spy",
+    "policy": "all_haiku",
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cost_usd": 0.32401,
+    "turns": 25,
+    "model_mix": {
+      "haiku": 25
+    },
+    "workspace": "/tmp/live/sma-crossover-spy_9fb8c1b5"
+  }
+]

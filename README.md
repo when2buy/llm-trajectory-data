@@ -73,9 +73,19 @@ Opus trajectory that scored 1.0, reconstructed the exact context at its decisive
 step, swapped *only that step* to a cheaper model, and re-ran the official 54-test verifier.
 Result: Opus 1.0 (control) → **Sonnet 0.59 avg (1/3 full pass, 58% cheaper) → Haiku 0.21
 (0/3, code crashes / non-convergent)**. The "light step %" from the trace said nothing about
-this — the decisive step is exactly the one that cannot be safely downgraded. The router
-design that follows: **cheap-first + verify + auto-escalate**, not static per-step rules.
+this — the decisive step is exactly the one that cannot be safely downgraded.
 Full method & data: [docs/counterfactual.md](./docs/counterfactual.md).
+
+**4. LIVE routing (real agent loop, mid-run intervention) — the decisive experiment.** Not
+replay: the model emits a tool call, we *actually execute it*, feed the real result back,
+and a policy picks the model **per turn, mid-run**. On `sma-crossover-spy` (official 20-test
+verifier): **all_haiku is best — reward 1.0 at $0.32, ~89% cheaper than all_opus.** The
+"route the light turns to Haiku" policy (`light_haiku`) was the **worst** — 5× costlier than
+all_haiku *and* lower reward (0.85) — because switching models mid-trajectory forces one to
+continue on another's divergent solving path. **This disproves, by experiment, the idea that
+you can pick routable turns by reading the trace.** Easy tasks → go all-cheap; hard tasks
+(L3) → the decisive step still needs the strong model. Full writeup:
+[docs/live-routing.md](./docs/live-routing.md).
 
 ---
 

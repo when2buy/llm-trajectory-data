@@ -68,6 +68,13 @@ real per-step swap + re-score — tells us which swaps are *safe*. Steps are not
 one wrong dispatch decision can derail the whole chain (see sample 04 below). That is why
 the safe percentage can only be established by experiment, not read off the trace.
 
+> ⚠️ **Experimentally falsified (see [live-routing.md](./live-routing.md)).** The tempting
+> reading of the L1 table — "downgrade the ~76% light steps to Haiku" — was tested in a
+> **live agent loop** and was the *worst* policy: ~5× costlier than running the whole task
+> on Haiku *and* lower reward. Switching models mid-trajectory makes one model continue on
+> another's divergent solving path, and quality drops. L1/L2 measure *mechanical* headroom;
+> they are **not** a routing recipe. The live experiment is the authority on what to do.
+
 ### A separate, task-level signal (still useful)
 
 Independently, comparing whole-task reward across the v10 benchmark (149 tasks × 3 models ×

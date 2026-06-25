@@ -1,0 +1,30 @@
+[
+  {
+    "task": "sma-crossover-spy",
+    "policy": "light_haiku",
+    "reward": 0.85,
+    "passed": 17,
+    "total": 20,
+    "cost_usd": 1.70683,
+    "turns": 20,
+    "model_mix": {
+      "opus": 7,
+      "haiku": 13
+    },
+    "workspace": "/tmp/live/sma-crossover-spy_e153de64"
+  },
+  {
+    "task": "sma-crossover-spy",
+    "policy": "light_haiku",
+    "reward": 1.0,
+    "passed": 20,
+    "total": 20,
+    "cost_usd": 1.82464,
+    "turns": 25,
+    "model_mix": {
+      "opus": 7,
+      "haiku": 18
+    },
+    "workspace": "/tmp/live/sma-crossover-spy_35ef0ea5"
+  }
+]

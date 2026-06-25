@@ -1,0 +1,67 @@
+{
+  "task": "sma-crossover-spy",
+  "verifier": "official 20-test pytest",
+  "mode": "LIVE agent loop with per-turn routing (real tool execution, errors propagate)",
+  "policies": {
+    "all_opus": {
+      "reward": [
+        1.0,
+        1.0
+      ],
+      "cost_usd": [
+        2.856,
+        3.006
+      ],
+      "mix": "opus only"
+    },
+    "all_sonnet": {
+      "reward": [
+        1.0,
+        1.0
+      ],
+      "cost_usd": [
+        0.617,
+        0.396
+      ],
+      "mix": "sonnet only"
+    },
+    "all_haiku": {
+      "reward": [
+        1.0
+      ],
+      "cost_usd": [
+        0.324
+      ],
+      "mix": "haiku only"
+    },
+    "light_haiku": {
+      "reward": [
+        0.85,
+        1.0
+      ],
+      "cost_usd": [
+        1.707,
+        1.825
+      ],
+      "mix": "opus7+haiku13-18 (per-turn switch)"
+    },
+    "escalate": {
+      "reward": [
+        1.0,
+        1.0
+      ],
+      "cost_usd": [
+        2.629,
+        2.934
+      ],
+      "mix": "haiku1+opus17 (errors->escalate all)"
+    }
+  },
+  "findings": [
+    "all_haiku is OPTIMAL on this easy task: reward 1.0 at $0.32 (~89% cheaper than all_opus).",
+    "light_haiku (static per-turn light/heavy switching) is the WORST policy: 5x costlier than all_haiku AND lower reward (0.85). Mixing two models' divergent solving paths mid-trajectory hurts.",
+    "escalate degenerates to all_opus because one early error escalates the whole rest of the run.",
+    "Routability is strongly task-difficulty dependent: opposite conclusion to the hard-task american-fd L3 (where Haiku could not do the decisive step).",
+    "Surface 'this step looks simple' inference is NOT reliable \u2014 proven by light_haiku underperforming."
+  ]
+}
