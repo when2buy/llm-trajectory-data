@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "opus": {
+      "n": 1018,
+      "avg_pct_light": 0.7625399559434788,
+      "median_pct_light": 0.8,
+      "avg_l2_saving": 0.6212263983475392
+    },
+    "sonnet": {
+      "n": 1053,
+      "avg_pct_light": 0.8042713650982676,
+      "median_pct_light": 0.8125,
+      "avg_l2_saving": 0.5446730139176468
+    },
+    "haiku": {
+      "n": 788,
+      "avg_pct_light": 0.8118647227704505,
+      "median_pct_light": 0.8181818181818182,
+      "avg_l2_saving": 0
+    }
+  }
+}

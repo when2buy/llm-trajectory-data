@@ -53,13 +53,20 @@ ctrf.json         per-test pass/fail (where available)
 meta.json         derived routing-relevant stats
 ```
 
-### Headline finding
+### Headline findings
 
-On the **same task** (`heston-mc-pricing`), Opus solved it in 14 steps for $1.18, while
-Haiku thrashed through **98 steps and 3.1M input tokens** (22 failed Edit loops), never
-converged, and cost **$3.36 — 2.8× more — for reward 0.0.** On a task out of its depth, the
-"cheap" model is the expensive one. Detecting this early is the router's core job, and it
-is only possible because the trace records per-step tools, errors, and tokens.
+**1. Routing is per-step, and ~100% of trajectories are routable.** Across 2,859 real
+claude-code traces, **every single one** has at least one cheap "light" step (dispatch /
+read / glue), and on Opus traces **~76% of model calls** are light. Repricing just the
+light steps at Haiku's rate is an avg **62%** model-cost reduction (upper bound — safety is
+a separate question, see L3 below). Routability is not "some % of tasks" — it's "most of
+*every* trajectory." Details: [report](./docs/report.md#routability-is-per-step-not-per-task).
+
+**2. On an out-of-depth task, the "cheap" model is the expensive one.** Same task
+(`heston-mc-pricing`): Opus solved it in 14 steps for $1.18; Haiku thrashed through **98
+steps and 3.1M input tokens** (22 failed Edit loops), never converged, and cost **$3.36 —
+2.8× more — for reward 0.0.** Detecting this early is the router's core job, and it is only
+possible because the trace records per-step tools, errors, and tokens.
 
 ---
 

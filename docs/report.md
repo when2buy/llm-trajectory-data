@@ -34,20 +34,47 @@ Every sample directory contains:
 
 ---
 
-## Three regimes of routability
+## Routability is per-STEP, not per-task — ~100% of trajectories are routable
 
-Across the full v10 benchmark (149 tasks × {Opus 4.6, Sonnet 4.5, Haiku 4.5} × 3 rounds),
-tasks fall into three regimes. The eight samples are two examples from each of the first
-two regimes plus the boundary case, so you can *see* the difference in the raw data:
+> **Correction / sharpening (this is the important part).** An earlier version of this
+> report framed routability at the **task** level ("~14% of tasks are free wins"). That is
+> the wrong unit. Routing happens **per step**, and at the step level *almost every
+> trajectory is routable* — because even a hard, Opus-only task is mostly cheap glue steps
+> ("read this file", "now run it", "check the output") with a few decisive reasoning/codegen
+> steps in between.
 
-| regime | share of tasks | Opus / Sonnet / Haiku reward | routing action |
-|--------|:--------------:|:-----------------------------|----------------|
-| **Free win** | ~14% (21/149) | 1.00 / 1.00 / 1.00 | downgrade the whole task to Haiku — zero quality loss |
-| **Opus-only** | ~20% (30/149) | ≥0.8 / mixed / ≤0.3 | keep on the strong model |
-| **Divergence (staircase)** | ~8% (12/149) | e.g. 1.00 / 0.67 / 0.00 | the interesting middle — route *per step* |
+Measured across **2,859 real claude-code trajectories** (per-step token data; Codex traces
+excluded — they lack it, see schema §5):
 
-Overall mean reward on the aligned set: **Opus 0.584 › Sonnet 0.466 › Haiku 0.296.** There
-is real headroom, and it is unevenly distributed — which is exactly why a router can win.
+| model | trajectories | avg % "light" steps | median | **100% have ≥1 routable step?** |
+|-------|:---:|:---:|:---:|:---:|
+| Opus | 1,018 | **76%** | 80% | ✅ yes |
+| Sonnet | 1,053 | 80% | 81% | ✅ yes |
+| Haiku | 788 | 81% | 82% | ✅ yes |
+
+A *light* step = a model call emitting <800 completion tokens (dispatch / read / glue). A
+*heavy* step = codegen/reasoning (≥800). **Every single trajectory has at least one light
+step.** The right question is therefore not *"what fraction of tasks can be routed"* but
+*"how much of each trajectory can be safely downgraded"* — answered at three levels:
+
+| level | question | answer source |
+|-------|----------|---------------|
+| **L1 surface routability** | how many steps are light? | ✅ measured: Opus traj. avg **76%** of model calls are light |
+| **L2 cost-saving potential** | reprice those light steps at Haiku → how much saved? | ✅ measured: avg **62%** model-cost reduction (upper bound) |
+| **L3 safe routability** | after the swap, does the final **reward** survive? | ⏳ requires the counterfactual experiment (see [`counterfactual.md`](./counterfactual.md)) |
+
+L1/L2 confirm the intuition that nearly everything is *mechanically* routable. Only L3 — a
+real per-step swap + re-score — tells us which swaps are *safe*. Steps are not independent:
+one wrong dispatch decision can derail the whole chain (see sample 04 below). That is why
+the safe percentage can only be established by experiment, not read off the trace.
+
+### A separate, task-level signal (still useful)
+
+Independently, comparing whole-task reward across the v10 benchmark (149 tasks × 3 models ×
+3 rounds): mean reward **Opus 0.584 › Sonnet 0.466 › Haiku 0.296**. ~14% of *tasks* are
+solved equally (1.0) by all three models — those can be downgraded wholesale, the laziest
+possible routing. But that 14% is a *floor* on the opportunity, not a ceiling: the other
+86% still contain mostly-routable steps, per the L1 table above.
 
 ---
 
