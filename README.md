@@ -90,6 +90,17 @@ experiment look like mixing *hurt*; it doesn't. Full writeup + architecture:
 hand-written-loop version is kept at [docs/live-routing.md](./docs/live-routing.md) with its
 caveats noted.)
 
+**5. Cross-provider: run the REAL Claude Code on a NON-Claude model.** Claude Code sends
+standard Anthropic Messages (`POST /v1/messages`) to whatever `ANTHROPIC_BASE_URL` points at.
+We wrote a ~250-line translation proxy ([scripts/xprovider_proxy.py](./scripts/xprovider_proxy.py))
+that converts Anthropic⇄OpenAI (including tool_use / tool_result) and forwards to
+**`gpt-oss-120b`** (an OpenAI open model, not Claude). Real Claude Code — multi-turn, with all
+28 of its tools — wrote a file, ran it, and reported output, **driven entirely by gpt-oss**.
+The open-source landscape (use these for production: `claude-code-router` ⭐35k,
+`litellm` ⭐51k, minimal `claude-code-proxy` ⭐3.6k), the mechanism, the minimal build, and the
+working demo with logs are in
+[docs/cross-provider-routing.md](./docs/cross-provider-routing.md).
+
 ---
 
 ## Provenance

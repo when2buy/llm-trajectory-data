@@ -1,0 +1,4 @@
+{"claude_asked": "haiku", "backend_model": "openai.gpt-oss-120b-1:0", "n_in": 397, "n_out": 90, "n_tools_sent": 0, "stop": "end_turn"}
+{"claude_asked": "us.anthropic.claude-sonnet-4-6", "backend_model": "openai.gpt-oss-120b-1:0", "n_in": 21707, "n_out": 162, "n_tools_sent": 28, "stop": "tool_use"}
+{"claude_asked": "us.anthropic.claude-sonnet-4-6", "backend_model": "openai.gpt-oss-120b-1:0", "n_in": 21834, "n_out": 58, "n_tools_sent": 28, "stop": "tool_use"}
+{"claude_asked": "us.anthropic.claude-sonnet-4-6", "backend_model": "openai.gpt-oss-120b-1:0", "n_in": 21901, "n_out": 47, "n_tools_sent": 28, "stop": "end_turn"}
