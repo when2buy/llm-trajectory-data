@@ -1,0 +1,30 @@
+[meter] tk_bob_2c7d policy=balanced served=gpt-oss-120b-1:0 +$0.00003 total=$0.0000/50.0
+[meter] tk_alice_9f3a policy=cheap served=gpt-oss-20b-1:0 +$0.00002 total=$0.0000/5e-05
+[meter] tk_alice_9f3a policy=cheap served=gpt-oss-20b-1:0 +$0.00002 total=$0.0000/5e-05
+[meter] tk_alice_9f3a policy=cheap served=gpt-oss-20b-1:0 +$0.00002 total=$0.0001/5e-05
+RESULTS
+A. no key            -> 401  invalid or disabled proxy key
+B. bob (balanced)    -> 200  answer='10' usage={'input_tokens': 76, 'output_tokens': 36}
+C. alice (budget $0.00005):
+   call0: 200  OK {'input_tokens': 70, 'output_tokens': 40}
+   call1: 200  OK {'input_tokens': 70, 'output_tokens': 40}
+   call2: 200  OK {'input_tokens': 70, 'output_tokens': 40}
+   call3: 429  budget exhausted: spent $0.0001 >= cap $0.00
+
+FINAL LEDGER
+{
+  "tk_alice_9f3a": {
+    "owner": "alice@adobe.com",
+    "policy": "cheap",
+    "monthly_budget_usd": 5e-05,
+    "spent_usd": 5.1e-05,
+    "disabled": false
+  },
+  "tk_bob_2c7d": {
+    "owner": "bob@adobe.com",
+    "policy": "balanced",
+    "monthly_budget_usd": 50.0,
+    "spent_usd": 3.3e-05,
+    "disabled": false
+  }
+}
