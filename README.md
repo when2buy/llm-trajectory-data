@@ -104,6 +104,18 @@ working demo with logs are in
 
 ---
 
+**6. HARD task — where Claude Code breaks when you swap the model (the key insight).** On
+`american-option-fd-new` (Crank-Nicolson PSOR, Hard; historical Opus 1.0 / Haiku 0.0), the
+**real Claude Code** routed all-Haiku made **85 internal model calls** and scored **0.80
+(43/54)** — vs ~10–20 calls on the easy task. The proxy's per-call trace (proven to be Claude
+Code's own calls — its system prompt + 9 tools) shows the exact failure cascade: wrong/slow
+PSOR numerics → **`Exit code 124` timeouts** → Haiku **shrinks the grid to 10×10** to make it
+run → loses the numerical-accuracy tests. Cheap models fail *by quietly reducing fidelity*,
+which is the dangerous kind. Strategy that follows: **start cheap, watch Claude Code's own
+tool_result error stream (timeouts / tracebacks / tool-format errors), escalate the whole run
+on ≥2 distress signals** — not static per-step downgrade. Full writeup + trace:
+[docs/hard-task-routing-insight.md](./docs/hard-task-routing-insight.md).
+
 ## Provenance
 
 - **Tasks & verifier:** [QuantitativeFinance-Bench](https://github.com/beckybyte/QuantitativeFinance-Bench) (16+ quant-finance coding tasks, each with a pytest suite)

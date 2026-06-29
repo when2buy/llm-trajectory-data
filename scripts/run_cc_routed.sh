@@ -16,7 +16,8 @@ if [ -d "$TASKDIR/environment/data" ]; then cp "$TASKDIR/environment/data/"* "$W
 sed "s#/app/output#$WS/output#g; s#/app#$WS#g" "$TASKDIR/instruction.md" > "$WS/TASK.md"
 
 # launch proxy
-ROUTER_POLICY="$POLICY" ROUTER_PORT="$PORT" ROUTER_LOG="$LOG" ROUTER_MAIN_TARGET="$MAIN_TARGET" \
+TRACE="/tmp/ccrouted/${TASK}_${POLICY}_${RID}.trace.jsonl"; rm -f "$TRACE"
+ROUTER_POLICY="$POLICY" ROUTER_PORT="$PORT" ROUTER_LOG="$LOG" ROUTER_MAIN_TARGET="$MAIN_TARGET" ROUTER_TRACE="$TRACE" \
   uvx -p 3.11 --with boto3 python "$ROOT/llm-trajectory-data/scripts/router_proxy.py" >"/tmp/ccrouted/proxy_${POLICY}_${RID}.log" 2>&1 &
 PROXY=$!
 sleep 3

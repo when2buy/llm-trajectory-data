@@ -29,7 +29,7 @@ Policies (env ROUTER_POLICY):
 
 Every routed call is logged to ROUTER_LOG (jsonl): {orig_model, served_model, n_in, n_out}.
 """
-import os, sys, json, http.server, socketserver, urllib.parse, datetime, hashlib, hmac
+import os, sys, json, re, base64, http.server, socketserver, urllib.parse, datetime, hashlib, hmac
 import boto3, botocore.session
 from botocore.awsrequest import AWSRequest
 from botocore.auth import SigV4Auth
@@ -61,6 +61,11 @@ def choose(orig_model):
         return HAIKU
     if POLICY == 'all_sonnet':
         return SONNET
+    if POLICY == 'all_opus':
+        return OPUS
+    if POLICY == 'upgrade_main':
+        # keep Claude Code's own small/Haiku utility calls; upgrade the main-loop model to Opus
+        return orig_model if is_small(orig_model) else OPUS
     if POLICY == 'downgrade_main':
         # leave Claude Code's own small/Haiku utility calls alone; downgrade the big
         # main-loop model (opus/sonnet) to Sonnet/Haiku.
@@ -76,6 +81,109 @@ def log_call(orig, served, n_in, n_out):
                                 'n_in': n_in, 'n_out': n_out}) + '\n')
     except Exception:
         pass
+
+TRACE = os.environ.get('ROUTER_TRACE')   # path to full per-call trace (jsonl)
+_seq = [0]
+
+def summarize_request(body):
+    """Extract proof-of-Claude-Code fields from the request body it assembled itself."""
+    try:
+        j = json.loads(body)
+    except Exception:
+        return {}
+    sysm = j.get('system')
+    if isinstance(sysm, list):
+        sys_txt = ' '.join(b.get('text', '') for b in sysm if isinstance(b, dict))
+    else:
+        sys_txt = sysm or ''
+    tools = [t.get('name') for t in (j.get('tools') or []) if isinstance(t, dict)]
+    msgs = j.get('messages') or []
+    last = msgs[-1] if msgs else {}
+    # describe last message content blocks
+    last_blocks = []
+    lc = last.get('content')
+    if isinstance(lc, list):
+        for b in lc:
+            if not isinstance(b, dict): continue
+            t = b.get('type')
+            if t == 'tool_result':
+                c = b.get('content')
+                txt = c if isinstance(c, str) else json.dumps(c)[:300]
+                last_blocks.append({'type': 'tool_result', 'is_error': b.get('is_error', False),
+                                    'preview': txt[:300]})
+            elif t == 'text':
+                last_blocks.append({'type': 'text', 'preview': b.get('text', '')[:200]})
+            else:
+                last_blocks.append({'type': t})
+    elif isinstance(lc, str):
+        last_blocks.append({'type': 'text', 'preview': lc[:200]})
+    return {
+        'system_prompt_chars': len(sys_txt),
+        'system_prompt_head': sys_txt[:160],
+        'n_tools': len(tools), 'tools': tools,
+        'n_messages': len(msgs),
+        'last_role': last.get('role'),
+        'last_content': last_blocks,
+        'max_tokens': j.get('max_tokens'),
+        'has_thinking': 'thinking' in j, 'has_output_config': 'output_config' in j,
+    }
+
+def parse_eventstream(raw):
+    """Pull readable JSON payloads out of a Bedrock AWS event-stream response.
+    Each event embeds {"bytes": "<base64 json>"}. We decode those and reassemble
+    text deltas, tool_use, stop_reason, and any error."""
+    import base64
+    out = {'text': '', 'tool_uses': [], 'stop_reason': None, 'error': None, 'usage': {}}
+    for m in re.finditer(rb'\{"bytes":"([A-Za-z0-9+/=]+)"', raw):
+        try:
+            chunk = json.loads(base64.b64decode(m.group(1)))
+        except Exception:
+            continue
+        t = chunk.get('type')
+        if t == 'content_block_start' and chunk.get('content_block', {}).get('type') == 'tool_use':
+            out['tool_uses'].append({'name': chunk['content_block'].get('name'),
+                                     'input_partial': ''})
+        elif t == 'content_block_delta':
+            d = chunk.get('delta', {})
+            if d.get('type') == 'text_delta': out['text'] += d.get('text', '')
+            elif d.get('type') == 'input_json_delta' and out['tool_uses']:
+                out['tool_uses'][-1]['input_partial'] += d.get('partial_json', '')
+        elif t == 'message_delta':
+            out['stop_reason'] = chunk.get('delta', {}).get('stop_reason') or out['stop_reason']
+            if 'usage' in chunk: out['usage'] = chunk['usage']
+    # non-stream error or full json
+    if not out['text'] and not out['tool_uses']:
+        try:
+            j = json.loads(raw)
+            if 'message' in j and 'content' not in j:  # error shape
+                out['error'] = j.get('message')
+            else:
+                out['stop_reason'] = j.get('stop_reason')
+                out['usage'] = j.get('usage', {})
+                for b in j.get('content', []):
+                    if b.get('type') == 'text': out['text'] += b.get('text', '')
+                    elif b.get('type') == 'tool_use':
+                        out['tool_uses'].append({'name': b.get('name'),
+                                                 'input_partial': json.dumps(b.get('input', {}))[:300]})
+        except Exception: pass
+    return out
+
+def write_trace(orig, served, status, req_body, resp_body):
+    if not TRACE: return
+    _seq[0] += 1
+    try:
+        rec = {'seq': _seq[0], 'orig': orig.split('.')[-1], 'served': served.split('.')[-1],
+               'http_status': status, 'request': summarize_request(req_body)}
+        rsp = parse_eventstream(resp_body)
+        rsp['text'] = rsp['text'][:400]
+        for tu in rsp['tool_uses']: tu['input_partial'] = tu['input_partial'][:300]
+        rec['response'] = rsp
+        with open(TRACE, 'a') as f:
+            f.write(json.dumps(rec) + '\n')
+    except Exception as e:
+        try:
+            with open(TRACE, 'a') as f: f.write(json.dumps({'seq': _seq[0], 'trace_err': str(e)}) + '\n')
+        except Exception: pass
 
 class Handler(http.server.BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'
@@ -138,12 +246,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 n_in, n_out = u.get('input_tokens', 0), u.get('output_tokens', 0)
             except Exception: pass
         log_call(orig_model, served_model, n_in, n_out)
+        write_trace(orig_model, served_model, status, body, resp_body)
 
         self.send_response(status)
         self.send_header('Content-Type', ctype)
         self.send_header('Content-Length', str(len(resp_body)))
+        self.send_header('Connection', 'close')   # avoid keep-alive stalls with buffered proxy
         self.end_headers()
         self.wfile.write(resp_body)
+        try: self.wfile.flush()
+        except Exception: pass
+    protocol_version = 'HTTP/1.1'
+    close_connection = True
     def log_message(self, *a): pass
 
 if __name__ == '__main__':

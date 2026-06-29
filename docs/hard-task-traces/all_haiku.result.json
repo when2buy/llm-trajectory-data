@@ -1,0 +1,13 @@
+{
+  "task": "american-option-fd-new",
+  "policy": "all_haiku",
+  "run": 0,
+  "reward": 0.7407407407407407,
+  "passed": 40,
+  "total": 54,
+  "cc_exit": 0,
+  "n_model_calls": 135,
+  "served_mix": {
+    "claude-haiku-4-5-20251001-v1:0": 135
+  }
+}
