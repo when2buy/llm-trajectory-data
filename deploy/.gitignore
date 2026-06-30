@@ -1,0 +1,5 @@
+.env
+data/
+*.log
+.cookies
+.session_secret

@@ -10,7 +10,7 @@ JSON we collect and at what granularity**, so the team can agree on the data spe
 build the router.
 
 📄 **Start here:** [**Guided report**](./docs/report.md) · [**Schema spec**](./docs/trajectory-schema.md)
-🏦 **Token relay station (new-api, key mgmt + billing):** [**Deploy guide**](./docs/token-relay-station.md)
+🏦 **Token relay station (new-api, key mgmt + billing):** [**Deploy guide**](./docs/token-relay-station.md) · [**🚀 Deployable package →**](./deploy/) (clone & run on any machine)
 🔌 **Make Claude Code call another model:** [**Core how-to**](./docs/core-howto.md) · [**Cross-provider demo**](./docs/cross-provider-routing.md) · [**Shared proxy-key service**](./docs/proxy-key-service.md)
 🌐 **Web view:** **https://when2buy.github.io/llm-trajectory-data/** (interactive trace browser)
 
